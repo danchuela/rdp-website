@@ -2824,6 +2824,7 @@
     }
 
     .post-heading {
+      --heading-kicker-space: calc((clamp(16px, 1.05vw, 20px) * 1.2) + 18px);
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(420px, 0.72fr);
       gap: clamp(40px, 5vw, 84px);
@@ -2876,6 +2877,7 @@
       max-width: 640px;
       min-height: 172px;
       margin-top: 0;
+      transform: translateY(calc(var(--heading-kicker-space) / 2));
       padding: 24px 28px;
       border: 1px solid rgba(106, 151, 255, 0.18);
       border-left: 3px solid rgba(43, 226, 255, 0.72);
@@ -3699,6 +3701,7 @@
 
       .post-heading p {
         margin-top: 0;
+        transform: none;
       }
 
       .method-track,
