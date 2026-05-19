@@ -2499,27 +2499,37 @@
     }
 
     @media (min-width: 1760px) {
+      .nav-inner {
+        width: min(1780px, calc(100vw - 120px));
+        grid-template-columns: 260px 1fr 260px;
+      }
+
       .hero-grid {
-        grid-template-columns: minmax(660px, 0.76fr) minmax(1000px, 1.24fr);
-        width: min(2240px, calc(100vw - 160px));
+        grid-template-columns: minmax(560px, 0.82fr) minmax(680px, 1.18fr);
+        width: min(1780px, calc(100vw - 120px));
+        padding-top: clamp(124px, 12vh, 150px);
+        padding-bottom: 96px;
       }
 
       .hero-copy {
-        max-width: 780px;
+        max-width: 720px;
       }
 
       h1 {
-        max-width: 790px;
-        font-size: clamp(72px, 4.35vw, 104px);
+        max-width: 740px;
+        font-size: 92px;
       }
 
       .hero-copy p {
-        max-width: 650px;
-        font-size: 21px;
+        max-width: 560px;
+        font-size: 19px;
       }
 
       .hero-visual {
-        inset: 116px 0 54px 38%;
+        top: 104px;
+        right: max(0px, calc((100vw - 1780px) / 2));
+        bottom: 58px;
+        left: max(35%, calc((100vw - 1780px) / 2 + 623px));
       }
 
       .video-showcase::before {
@@ -2533,13 +2543,13 @@
       }
 
       .video-shell {
-        right: max(42px, 2.2vw);
-        width: min(1340px, 58vw);
-        transform: translateY(-48%);
+        right: max(16px, 1.3vw);
+        width: 1120px;
+        transform: translateY(-50%);
       }
 
       .logos {
-        width: min(1480px, calc(100vw - 560px));
+        width: min(1688px, calc(100vw - 344px));
       }
     }
 
