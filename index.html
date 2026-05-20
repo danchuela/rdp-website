@@ -913,9 +913,9 @@
       z-index: 2;
       left: -10vw;
       right: -10vw;
-      bottom: -68px;
+      bottom: -104px;
       height: 260px;
-      opacity: 0.58;
+      opacity: 0.52;
       pointer-events: none;
       background:
         radial-gradient(ellipse at 64% 48%, rgba(245, 53, 229, 0.36), transparent 27%),
@@ -2011,7 +2011,7 @@
 
     .mesh-wave {
       z-index: 1;
-      bottom: -6px;
+      bottom: -34px;
       height: 240px;
       opacity: 0.24;
       mask-image: linear-gradient(90deg, transparent 0%, transparent 26%, black 46%, black 100%);
@@ -2152,6 +2152,11 @@
       animation: heroSupportingReveal 1.4s ease 8.4s both;
     }
 
+    .data-wave {
+      opacity: 0;
+      animation: heroDataWaveReveal 2.6s ease 7.25s both;
+    }
+
     .logos {
       opacity: 0;
       animation: heroLogosReveal 1.4s ease 8.4s both;
@@ -2229,6 +2234,18 @@
 
       to {
         opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heroDataWaveReveal {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 0.52;
         transform: translateY(0);
       }
     }
@@ -2689,7 +2706,8 @@
 
       .hero-copy,
       .hero-visual,
-      .mesh-wave {
+      .mesh-wave,
+      .data-wave {
         opacity: 1;
         filter: none;
         animation: none;
@@ -2708,6 +2726,7 @@
       .hero-copy,
       .hero-visual,
       .mesh-wave,
+      .data-wave,
       .logos,
       .chat-widget,
       .navbar {
