@@ -2106,6 +2106,26 @@
       backface-visibility: hidden;
     }
 
+    .video-fallback {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 900ms ease;
+    }
+
+    .video-shell.video-failed .hero-video {
+      opacity: 0;
+    }
+
+    .video-shell.video-failed .video-fallback {
+      opacity: 0.98;
+    }
+
     .video-vignette {
       display: none;
     }
@@ -3878,7 +3898,8 @@
         <div class="hero-visual" aria-hidden="true">
           <div class="video-showcase">
             <div class="video-shell">
-              <video class="hero-video" src="assets/video/rdpvideo-source.mp4" width="1280" height="720" muted loop playsinline preload="metadata"></video>
+              <video class="hero-video" src="assets/video/rdpvideo-web.mp4" poster="assets/img/rdpvideo-poster.jpg" width="1600" height="900" muted loop playsinline preload="metadata"></video>
+              <img class="video-fallback" src="assets/img/rdpvideo-poster.jpg" alt="">
               <div class="video-vignette"></div>
             </div>
           </div>
@@ -4469,8 +4490,31 @@
 
     const heroVideo = document.querySelector(".hero-video");
     if (heroVideo) {
+      const videoShell = heroVideo.closest(".video-shell");
+      let heroVideoHasRendered = false;
+      let heroVideoFallbackTimer;
+
+      const showHeroVideoFallback = () => {
+        if (!heroVideoHasRendered) videoShell?.classList.add("video-failed");
+      };
+
+      const markHeroVideoRendered = () => {
+        heroVideoHasRendered = true;
+        window.clearTimeout(heroVideoFallbackTimer);
+        videoShell?.classList.remove("video-failed");
+      };
+
+      heroVideo.addEventListener("playing", markHeroVideoRendered);
+      heroVideo.addEventListener("canplay", markHeroVideoRendered);
+      heroVideo.addEventListener("timeupdate", () => {
+        if (heroVideo.currentTime > 0.15) markHeroVideoRendered();
+      }, { passive: true });
+      heroVideo.addEventListener("error", showHeroVideoFallback);
+      heroVideo.addEventListener("stalled", showHeroVideoFallback);
+
       const startHeroVideo = () => {
-        heroVideo.play().catch(() => {});
+        heroVideoFallbackTimer = window.setTimeout(showHeroVideoFallback, 4200);
+        heroVideo.play().catch(showHeroVideoFallback);
       };
       window.setTimeout(startHeroVideo, 7250);
     }
