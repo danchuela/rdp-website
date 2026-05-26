@@ -2348,8 +2348,7 @@
       pointer-events: auto;
     }
 
-    .logo-tooltip-wrap::after,
-    .proof-logo::after {
+    .logo-tooltip-wrap::after {
       content: attr(data-company);
       position: absolute;
       z-index: 40;
@@ -2378,8 +2377,7 @@
       transition: opacity 160ms ease, transform 160ms ease;
     }
 
-    .logo-tooltip-wrap::before,
-    .proof-logo::before {
+    .logo-tooltip-wrap::before {
       content: "";
       position: absolute;
       z-index: 41;
@@ -2399,25 +2397,17 @@
     .logo-tooltip-wrap:hover::after,
     .logo-tooltip-wrap:hover::before,
     .logo-tooltip-wrap:focus-visible::after,
-    .logo-tooltip-wrap:focus-visible::before,
-    .proof-logo:hover::after,
-    .proof-logo:hover::before,
-    .proof-logo:focus-visible::after,
-    .proof-logo:focus-visible::before {
+    .logo-tooltip-wrap:focus-visible::before {
       opacity: 1;
     }
 
     .logo-tooltip-wrap:hover::after,
-    .logo-tooltip-wrap:focus-visible::after,
-    .proof-logo:hover::after,
-    .proof-logo:focus-visible::after {
+    .logo-tooltip-wrap:focus-visible::after {
       transform: translate(-50%, 0);
     }
 
     .logo-tooltip-wrap:hover::before,
-    .logo-tooltip-wrap:focus-visible::before,
-    .proof-logo:hover::before,
-    .proof-logo:focus-visible::before {
+    .logo-tooltip-wrap:focus-visible::before {
       transform: translate(-50%, 0) rotate(45deg);
     }
 
@@ -2479,6 +2469,32 @@
     .logo-chip.cnio { width: 160px; }
     .logo-chip.accenture { width: 138px; }
     .logo-chip.werium { width: 148px; }
+
+    .logo-chip.sector {
+      gap: 9px;
+      width: auto;
+      min-width: 132px;
+      padding: 0 14px;
+      border: 1px solid rgba(46, 220, 255, 0.18);
+      background:
+        linear-gradient(135deg, rgba(43, 226, 255, 0.13), rgba(151, 83, 255, 0.1)),
+        rgba(7, 13, 31, 0.72);
+      color: rgba(242, 247, 255, 0.9);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow:
+        0 0 22px rgba(35, 215, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .logo-chip.sector svg {
+      width: 18px;
+      height: 18px;
+      color: #2bdcff;
+      flex: 0 0 auto;
+    }
 
     .logo-wordmark {
       display: inline-flex;
@@ -3132,45 +3148,55 @@
 
     .proof-logo {
       position: relative;
-      display: flex;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
       align-items: center;
-      justify-content: center;
-      min-height: 58px;
-      padding: 8px 14px;
+      min-height: 76px;
+      padding: 14px;
+      border: 1px solid rgba(126, 156, 255, 0.16);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.96);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(43, 226, 255, 0.16), transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 44%),
+        rgba(7, 13, 31, 0.76);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 16px 42px rgba(0, 0, 0, 0.18);
     }
 
-    .proof-logo.gov {
-      background: #ffcc00;
-      height: 64px;
-      min-height: 64px;
-      padding: 0 8px;
+    .proof-logo-icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(43, 226, 255, 0.38);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(43, 226, 255, 0.18), rgba(151, 83, 255, 0.12)),
+        rgba(7, 13, 31, 0.72);
+      color: #2bdcff;
+      box-shadow: 0 0 24px rgba(43, 226, 255, 0.16);
     }
 
-    .proof-logo.cnio {
-      background: #ffffff;
+    .proof-logo-icon svg {
+      width: 24px;
+      height: 24px;
     }
 
-    .proof-logo img {
+    .proof-logo strong {
       display: block;
-      max-width: 100%;
-      max-height: 42px;
-      object-fit: contain;
+      color: #ffffff;
+      font-size: 17px;
+      line-height: 1.18;
     }
 
-    .proof-logo.gov img {
-      width: auto;
-      max-width: 96%;
-      max-height: 60px;
-    }
-
-    .proof-logo.werium {
-      padding-block: 5px;
-    }
-
-    .proof-logo.werium img {
-      max-height: 48px;
+    .proof-logo span {
+      display: block;
+      margin-top: 5px;
+      color: rgba(221, 230, 255, 0.62);
+      font-size: 13px;
+      line-height: 1.35;
     }
 
     .proof-metrics {
@@ -4116,13 +4142,13 @@
 
         <div class="data-wave" aria-hidden="true"></div>
         <div class="logos" aria-label="Experiencia del equipo">
-          <p>Experiencia del equipo</p>
+          <p>Entornos exigentes</p>
           <div class="logo-row">
-            <span class="logo-tooltip-wrap" data-company="AstraZeneca" tabindex="0" aria-label="AstraZeneca" title="AstraZeneca"><span class="logo-chip white astrazeneca"><img src="assets/logos/astrazeneca-cropped.png" alt="AstraZeneca"></span></span>
-            <span class="logo-tooltip-wrap" data-company="Ministerio de Sanidad - Gobierno de Espa&ntilde;a" tabindex="0" aria-label="Ministerio de Sanidad - Gobierno de Espa&ntilde;a" title="Ministerio de Sanidad - Gobierno de Espa&ntilde;a"><span class="logo-chip gov ministry"><img src="assets/logos/ministerio-sanidad.png" alt="Ministerio de Sanidad"></span></span>
-            <span class="logo-tooltip-wrap" data-company="Centro Nacional de Investigaciones Oncol&oacute;gicas (CNIO)" tabindex="0" aria-label="Centro Nacional de Investigaciones Oncol&oacute;gicas (CNIO)" title="Centro Nacional de Investigaciones Oncol&oacute;gicas (CNIO)"><span class="logo-chip clear cnio"><img src="assets/logos/cnio-cropped.png" alt="CNIO"></span></span>
-            <span class="logo-tooltip-wrap" data-company="Accenture" tabindex="0" aria-label="Accenture" title="Accenture"><span class="logo-chip white accenture"><img src="assets/logos/accenture.png" alt="Accenture"></span></span>
-            <span class="logo-tooltip-wrap" data-company="Werium Assistive Solutions" tabindex="0" aria-label="Werium Assistive Solutions" title="Werium Assistive Solutions"><span class="logo-chip white werium"><img src="assets/logos/werium-cropped.png" alt="Werium"></span></span>
+            <span class="logo-chip sector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M10 21h4M12 3v18M7 7h10M6 7l-2 6a3 3 0 0 0 6 0L8 7M18 7l-2 6a3 3 0 0 0 6 0l-2-6"/></svg>Farma global</span>
+            <span class="logo-chip sector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 21h16M6 21V9l6-4 6 4v12M9 21v-6h6v6M10 11h4"/></svg>Sector p&uacute;blico</span>
+            <span class="logo-chip sector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M9 3v6l-5 8a3 3 0 0 0 2.6 4h10.8A3 3 0 0 0 20 17l-5-8V3M8 3h8M8 15h8"/></svg>Investigaci&oacute;n</span>
+            <span class="logo-chip sector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16v12H4zM9 7V5h6v2M8 12h8"/></svg>Consultor&iacute;a</span>
+            <span class="logo-chip sector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12 4 7.5M12 12l8-4.5M12 12v9"/></svg>Producto</span>
           </div>
         </div>
       </section>
@@ -4248,31 +4274,46 @@
                 <div class="post-kicker">Experiencia</div>
                 <h2>Experiencia aplicada en entornos exigentes.</h2>
               </div>
-              <p>Venimos de entornos donde no basta con hacer una demo: hay datos sensibles, equipos grandes, herramientas heredadas, procesos cr&iacute;ticos y resultados que deben poder explicarse.</p>
+              <p>Venimos de contextos donde la IA tiene que aguantar la realidad: datos sensibles, equipos grandes, sistemas heredados, procesos cr&iacute;ticos y resultados que deben poder explicarse.</p>
             </div>
 
             <div class="experience-grid">
               <aside class="post-panel proof-panel reveal">
-                <h3>Algunas de las organizaciones y empresas m&aacute;s importantes con las que hemos trabajado.</h3>
-                <div class="proof-logos" aria-label="Experiencia del equipo">
-                  <span class="proof-logo" data-company="AstraZeneca" tabindex="0" aria-label="AstraZeneca" title="AstraZeneca"><img src="assets/logos/astrazeneca-cropped.png" alt="AstraZeneca"></span>
-                  <span class="proof-logo gov" data-company="Ministerio de Sanidad - Gobierno de Espa&ntilde;a" tabindex="0" aria-label="Ministerio de Sanidad - Gobierno de Espa&ntilde;a" title="Ministerio de Sanidad - Gobierno de Espa&ntilde;a"><img src="assets/logos/ministerio-sanidad.png" alt="Ministerio de Sanidad"></span>
-                  <span class="proof-logo cnio" data-company="Centro Nacional de Investigaciones Oncol&oacute;gicas (CNIO)" tabindex="0" aria-label="Centro Nacional de Investigaciones Oncol&oacute;gicas (CNIO)" title="Centro Nacional de Investigaciones Oncol&oacute;gicas (CNIO)"><img src="assets/logos/cnio-cropped.png" alt="CNIO"></span>
-                  <span class="proof-logo" data-company="Accenture" tabindex="0" aria-label="Accenture" title="Accenture"><img src="assets/logos/accenture.png" alt="Accenture"></span>
-                  <span class="proof-logo werium" data-company="Werium Assistive Solutions" tabindex="0" aria-label="Werium Assistive Solutions" title="Werium Assistive Solutions"><img src="assets/logos/werium-cropped.png" alt="Werium"></span>
+                <h3>Experiencia en escenarios donde una demo no basta.</h3>
+                <div class="proof-logos" aria-label="Contextos de experiencia del equipo">
+                  <div class="proof-logo">
+                    <div class="proof-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><path d="M10 21h4M12 3v18M7 7h10M6 7l-2 6a3 3 0 0 0 6 0L8 7M18 7l-2 6a3 3 0 0 0 6 0l-2-6"/></svg></div>
+                    <div><strong>Farmac&eacute;uticas de primer nivel mundial</strong><span>Documentaci&oacute;n cr&iacute;tica, datos sensibles y decisiones que exigen precisi&oacute;n.</span></div>
+                  </div>
+                  <div class="proof-logo">
+                    <div class="proof-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><path d="M4 21h16M6 21V9l6-4 6 4v12M9 21v-6h6v6M10 11h4"/></svg></div>
+                    <div><strong>Administraci&oacute;n y salud p&uacute;blica</strong><span>Privacidad, permisos, trazabilidad y operativas con responsabilidad real.</span></div>
+                  </div>
+                  <div class="proof-logo">
+                    <div class="proof-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><path d="M9 3v6l-5 8a3 3 0 0 0 2.6 4h10.8A3 3 0 0 0 20 17l-5-8V3M8 3h8M8 15h8"/></svg></div>
+                    <div><strong>Investigaci&oacute;n biom&eacute;dica avanzada</strong><span>Conocimiento experto, evidencia, rigor metodol&oacute;gico y resultados justificables.</span></div>
+                  </div>
+                  <div class="proof-logo">
+                    <div class="proof-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><path d="M4 7h16v12H4zM9 7V5h6v2M8 12h8"/></svg></div>
+                    <div><strong>Consultor&iacute;a tecnol&oacute;gica y operaciones</strong><span>Equipos grandes, herramientas heredadas y adopci&oacute;n sin romper la operativa.</span></div>
+                  </div>
+                  <div class="proof-logo">
+                    <div class="proof-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12 4 7.5M12 12l8-4.5M12 12v9"/></svg></div>
+                    <div><strong>Producto, datos e ingenier&iacute;a</strong><span>Aplicaciones, automatizaciones, modelos e integraciones preparadas para producci&oacute;n.</span></div>
+                  </div>
                 </div>
                 <div class="proof-metrics">
-                  <div class="proof-metric"><strong>+8</strong><span>organizaciones y empresas</span></div>
-                  <div class="proof-metric"><strong>24/7</strong><span>automatizaciones y asistentes activos</span></div>
-                  <div class="proof-metric"><strong>Ciclo completo</strong><span>auditor&iacute;a, proyecto y seguimiento</span></div>
+                  <div class="proof-metric"><strong>+8</strong><span>entornos profesionales de alta exigencia</span></div>
+                  <div class="proof-metric"><strong>24/7</strong><span>sistemas, agentes y procesos activos</span></div>
+                  <div class="proof-metric"><strong>Producci&oacute;n</strong><span>diagn&oacute;stico, desarrollo, despliegue y seguimiento</span></div>
                 </div>
               </aside>
 
               <div class="case-grid">
-                <article class="post-panel case-card interactive reveal"><span class="case-tag">Salud y sector p&uacute;blico</span><h3>Rigor con datos sensibles</h3><p>Experiencia en contextos donde permisos, privacidad, trazabilidad y calidad del dato son parte central del proyecto desde el primer d&iacute;a.</p></article>
-                <article class="post-panel case-card interactive reveal"><span class="case-tag">Farma e investigaci&oacute;n</span><h3>Conocimiento t&eacute;cnico y regulado</h3><p>Trabajo con documentaci&oacute;n compleja, protocolos, informes y equipos expertos que necesitan respuestas precisas y justificables.</p></article>
-                <article class="post-panel case-card interactive reveal"><span class="case-tag">Consultor&iacute;a tecnol&oacute;gica</span><h3>Adopci&oacute;n en equipos reales</h3><p>Experiencia en proyectos con varias &aacute;reas, herramientas distintas, restricciones de negocio y necesidad de entregar valor sin bloquear la operativa.</p></article>
-                <article class="post-panel case-card interactive reveal"><span class="case-tag">Ingenier&iacute;a de producto</span><h3>Sistemas pensados para producci&oacute;n</h3><p>Construcci&oacute;n de aplicaciones, integraciones, pipelines y modelos que deben desplegarse, mantenerse y mejorar con uso real.</p></article>
+                <article class="post-panel case-card interactive reveal"><span class="case-tag">Datos sensibles</span><h3>Rigor desde el primer d&iacute;a</h3><p>Dise&ntilde;amos pensando en permisos, privacidad, trazabilidad, calidad del dato y explicabilidad, no como extras de &uacute;ltima hora.</p></article>
+                <article class="post-panel case-card interactive reveal"><span class="case-tag">Conocimiento experto</span><h3>IA que responde con fundamento</h3><p>Trabajamos con documentaci&oacute;n compleja, protocolos, informes y fuentes internas para dar respuestas claras, verificables y accionables.</p></article>
+                <article class="post-panel case-card interactive reveal"><span class="case-tag">Operativa real</span><h3>Integraci&oacute;n sin frenar al equipo</h3><p>Conectamos soluciones con herramientas existentes, procesos vivos y usuarios reales para que la adopci&oacute;n ocurra dentro del trabajo diario.</p></article>
+                <article class="post-panel case-card interactive reveal"><span class="case-tag">Escala y producci&oacute;n</span><h3>Sistemas que se pueden mantener</h3><p>Construimos con despliegue, observabilidad, medici&oacute;n y mejora continua para que la soluci&oacute;n no se quede en prototipo.</p></article>
               </div>
             </div>
           </div>
