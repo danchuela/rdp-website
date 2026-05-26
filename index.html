@@ -3170,11 +3170,11 @@
       --panel-accent-2-rgb: 66, 108, 255;
       position: relative;
       display: grid;
-      grid-template-columns: 46px 1fr;
-      gap: 14px;
+      grid-template-columns: 56px 1fr;
+      gap: 18px;
       align-items: center;
-      min-height: 76px;
-      padding: 14px;
+      min-height: 92px;
+      padding: 18px;
       border: 1px solid rgba(var(--panel-accent-rgb), 0.22);
       border-radius: 8px;
       background:
@@ -3197,8 +3197,8 @@
     .proof-logo-icon {
       display: grid;
       place-items: center;
-      width: 46px;
-      height: 46px;
+      width: 56px;
+      height: 56px;
       border: 1px solid rgba(var(--panel-accent-rgb), 0.42);
       border-radius: 8px;
       background:
@@ -3209,15 +3209,17 @@
     }
 
     .proof-logo-icon svg {
-      width: 24px;
-      height: 24px;
+      width: 28px;
+      height: 28px;
     }
 
     .proof-logo strong {
       display: block;
       color: #ffffff;
-      font-size: 17px;
-      line-height: 1.18;
+      font-size: clamp(21px, 1.55vw, 28px);
+      font-weight: 900;
+      line-height: 1.08;
+      text-wrap: balance;
     }
 
     .proof-logo span {
@@ -3273,11 +3275,12 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 18px;
+      align-content: start;
     }
 
     .case-card {
       padding: 26px;
-      min-height: 210px;
+      min-height: 190px;
     }
 
     .case-card {
@@ -3303,6 +3306,12 @@
     .case-card:nth-child(2) { --panel-accent-rgb: 155, 124, 255; --panel-accent-2-rgb: 255, 102, 216; }
     .case-card:nth-child(3) { --panel-accent-rgb: 57, 234, 162; --panel-accent-2-rgb: 43, 156, 255; }
     .case-card:nth-child(4) { --panel-accent-rgb: 255, 184, 77; --panel-accent-2-rgb: 180, 75, 255; }
+    .case-card:nth-child(5) {
+      --panel-accent-rgb: 79, 140, 255;
+      --panel-accent-2-rgb: 255, 102, 216;
+      grid-column: 1 / -1;
+      min-height: 150px;
+    }
 
     .case-tag {
       display: inline-flex;
@@ -3312,6 +3321,35 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       text-shadow: 0 0 14px rgba(var(--panel-accent-rgb), 0.24);
+    }
+
+    .case-points {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .case-points li {
+      position: relative;
+      padding-left: 18px;
+      color: rgba(223, 231, 255, 0.68);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .case-points li::before {
+      content: "";
+      position: absolute;
+      top: 0.66em;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgb(var(--panel-accent-rgb));
+      box-shadow: 0 0 12px rgba(var(--panel-accent-rgb), 0.48);
+      transform: translateY(-50%);
     }
 
     .method-panel {
@@ -4405,23 +4443,23 @@
                 <div class="proof-logos" aria-label="Contextos de experiencia del equipo">
                   <div class="proof-logo">
                     <div class="proof-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><path d="M10 21h4M12 3v18M7 7h10M6 7l-2 6a3 3 0 0 0 6 0L8 7M18 7l-2 6a3 3 0 0 0 6 0l-2-6"/></svg></div>
-                    <div><strong>Multinacionales farmac&eacute;uticas l&iacute;deres</strong><span>Entornos con documentaci&oacute;n cr&iacute;tica, datos sensibles y decisiones que exigen precisi&oacute;n global.</span></div>
+                    <div><strong>Multinacionales farmac&eacute;uticas l&iacute;deres</strong></div>
                   </div>
                   <div class="proof-logo">
                     <div class="proof-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><path d="M4 21h16M6 21V9l6-4 6 4v12M9 21v-6h6v6M10 11h4"/></svg></div>
-                    <div><strong>Organismos p&uacute;blicos nacionales</strong><span>Procesos p&uacute;blicos, privacidad, permisos y responsabilidad institucional.</span></div>
+                    <div><strong>Organismos p&uacute;blicos nacionales</strong></div>
                   </div>
                   <div class="proof-logo">
                     <div class="proof-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><path d="M9 3v6l-5 8a3 3 0 0 0 2.6 4h10.8A3 3 0 0 0 20 17l-5-8V3M8 3h8M8 15h8"/></svg></div>
-                    <div><strong>Centros nacionales de investigaci&oacute;n avanzada</strong><span>Investigaci&oacute;n avanzada, evidencia cient&iacute;fica y conocimiento experto.</span></div>
+                    <div><strong>Centros nacionales de investigaci&oacute;n avanzada</strong></div>
                   </div>
                   <div class="proof-logo">
                     <div class="proof-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><path d="M4 7h16v12H4zM9 7V5h6v2M8 12h8"/></svg></div>
-                    <div><strong>Consultoras tecnol&oacute;gicas multinacionales</strong><span>Equipos grandes, delivery exigente, herramientas heredadas y adopci&oacute;n real.</span></div>
+                    <div><strong>Consultoras tecnol&oacute;gicas multinacionales</strong></div>
                   </div>
                   <div class="proof-logo">
                     <div class="proof-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12 4 7.5M12 12l8-4.5M12 12v9"/></svg></div>
-                    <div><strong>Productos tecnol&oacute;gicos especializados</strong><span>Ingenier&iacute;a aplicada, datos, automatizaci&oacute;n y soluciones listas para uso real.</span></div>
+                    <div><strong>Productos tecnol&oacute;gicos especializados</strong></div>
                   </div>
                 </div>
                 <div class="proof-metrics">
@@ -4432,10 +4470,46 @@
               </aside>
 
               <div class="case-grid">
-                <article class="post-panel case-card interactive reveal"><span class="case-tag">Entornos regulados</span><h3>Datos sensibles bajo control</h3><p>Permisos, privacidad, trazabilidad, calidad del dato y explicabilidad tratados desde el dise&ntilde;o, no como una capa a&ntilde;adida al final.</p></article>
-                <article class="post-panel case-card interactive reveal"><span class="case-tag">Alta especializaci&oacute;n</span><h3>Conocimiento que exige precisi&oacute;n</h3><p>Documentaci&oacute;n t&eacute;cnica, protocolos, informes y fuentes internas donde cada respuesta debe ser clara, verificable y accionable.</p></article>
-                <article class="post-panel case-card interactive reveal"><span class="case-tag">Organizaciones complejas</span><h3>Adopci&oacute;n sin romper la operativa</h3><p>Equipos grandes, procesos vivos y herramientas existentes donde la soluci&oacute;n tiene que integrarse sin bloquear el trabajo diario.</p></article>
-                <article class="post-panel case-card interactive reveal"><span class="case-tag">Producci&oacute;n real</span><h3>Sistemas que sobreviven al uso</h3><p>Despliegue, observabilidad, medici&oacute;n y mejora continua para que la soluci&oacute;n no se quede en prototipo ni dependa de una demo.</p></article>
+                <article class="post-panel case-card interactive reveal">
+                  <span class="case-tag">Datos sensibles</span>
+                  <h3>Rigor desde el dise&ntilde;o</h3>
+                  <ul class="case-points">
+                    <li>Permisos, privacidad y trazabilidad.</li>
+                    <li>Calidad del dato y explicabilidad.</li>
+                  </ul>
+                </article>
+                <article class="post-panel case-card interactive reveal">
+                  <span class="case-tag">Conocimiento experto</span>
+                  <h3>Respuestas verificables</h3>
+                  <ul class="case-points">
+                    <li>Documentaci&oacute;n cr&iacute;tica, protocolos e informes.</li>
+                    <li>Contexto, fuentes y criterios claros.</li>
+                  </ul>
+                </article>
+                <article class="post-panel case-card interactive reveal">
+                  <span class="case-tag">Operativa compleja</span>
+                  <h3>Adopci&oacute;n sin frenar equipos</h3>
+                  <ul class="case-points">
+                    <li>Herramientas heredadas y procesos vivos.</li>
+                    <li>Integraci&oacute;n sin bloquear el trabajo diario.</li>
+                  </ul>
+                </article>
+                <article class="post-panel case-card interactive reveal">
+                  <span class="case-tag">Responsabilidad real</span>
+                  <h3>Decisiones que se pueden explicar</h3>
+                  <ul class="case-points">
+                    <li>Procesos con impacto institucional y negocio.</li>
+                    <li>Resultados medibles, auditables y defendibles.</li>
+                  </ul>
+                </article>
+                <article class="post-panel case-card interactive reveal">
+                  <span class="case-tag">Producci&oacute;n</span>
+                  <h3>No demos: sistemas mantenibles</h3>
+                  <ul class="case-points">
+                    <li>Despliegue, observabilidad y seguimiento.</li>
+                    <li>Mejora continua para que la soluci&oacute;n escale.</li>
+                  </ul>
+                </article>
               </div>
             </div>
           </div>
