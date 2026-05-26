@@ -2854,12 +2854,20 @@
     }
 
     .post-section {
+      --section-accent-rgb: 43, 226, 255;
+      --section-accent-2-rgb: 157, 79, 255;
       position: relative;
       scroll-margin-top: 94px;
       padding: clamp(76px, 7vw, 124px) 32px;
       border-top: 0;
       background: transparent;
     }
+
+    #servicios { --section-accent-rgb: 43, 226, 255; --section-accent-2-rgb: 66, 108, 255; }
+    #recursos { --section-accent-rgb: 155, 124, 255; --section-accent-2-rgb: 43, 220, 255; }
+    #planificacion { --section-accent-rgb: 255, 184, 77; --section-accent-2-rgb: 255, 102, 216; }
+    #casos { --section-accent-rgb: 57, 234, 162; --section-accent-2-rgb: 43, 156, 255; }
+    #empresa { --section-accent-rgb: 255, 102, 216; --section-accent-2-rgb: 155, 124, 255; }
 
     .post-hero #servicios,
     .post-hero #casos,
@@ -2898,12 +2906,12 @@
       align-items: center;
       gap: 14px;
       margin-bottom: 18px;
-      color: #2bdcff;
+      color: rgb(var(--section-accent-rgb));
       font-size: clamp(16px, 1.05vw, 20px);
       font-weight: 900;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      text-shadow: 0 0 18px rgba(43, 220, 255, 0.26);
+      text-shadow: 0 0 18px rgba(var(--section-accent-rgb), 0.28);
     }
 
     .post-kicker::before {
@@ -2911,8 +2919,8 @@
       width: 11px;
       height: 11px;
       border-radius: 50%;
-      background: #22dfff;
-      box-shadow: 0 0 22px rgba(34, 223, 255, 0.95);
+      background: rgb(var(--section-accent-rgb));
+      box-shadow: 0 0 22px rgba(var(--section-accent-rgb), 0.95);
     }
 
     .post-heading h2 {
@@ -2934,14 +2942,17 @@
       margin-top: 0;
       transform: translateY(calc(var(--heading-kicker-space) / 2));
       padding: 24px 28px;
-      border: 1px solid rgba(106, 151, 255, 0.18);
-      border-left: 3px solid rgba(43, 226, 255, 0.72);
+      border: 1px solid rgba(var(--section-accent-rgb), 0.2);
+      border-left: 3px solid rgba(var(--section-accent-rgb), 0.78);
       border-radius: 8px;
       background:
-        linear-gradient(135deg, rgba(43, 226, 255, 0.07), transparent 44%),
+        radial-gradient(circle at 8% 10%, rgba(var(--section-accent-rgb), 0.12), transparent 34%),
+        radial-gradient(circle at 92% 88%, rgba(var(--section-accent-2-rgb), 0.09), transparent 38%),
+        linear-gradient(135deg, rgba(var(--section-accent-rgb), 0.07), transparent 44%),
         rgba(6, 12, 30, 0.54);
       box-shadow:
         0 22px 62px rgba(0, 0, 0, 0.22),
+        0 0 30px rgba(var(--section-accent-rgb), 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.07);
       color: rgba(238, 244, 255, 0.82);
       font-size: clamp(20px, 1.25vw, 25px);
@@ -2951,15 +2962,20 @@
     }
 
     .post-panel {
+      --panel-accent-rgb: 43, 226, 255;
+      --panel-accent-2-rgb: 157, 79, 255;
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(106, 151, 255, 0.18);
+      border: 1px solid rgba(var(--panel-accent-rgb), 0.18);
       border-radius: 8px;
       background:
+        radial-gradient(circle at 14% 10%, rgba(var(--panel-accent-rgb), 0.08), transparent 32%),
+        radial-gradient(circle at 88% 88%, rgba(var(--panel-accent-2-rgb), 0.07), transparent 34%),
         linear-gradient(135deg, rgba(255, 255, 255, 0.07), transparent 34%),
         rgba(7, 13, 31, 0.78);
       box-shadow:
         0 26px 80px rgba(0, 0, 0, 0.34),
+        0 0 34px rgba(var(--panel-accent-rgb), 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(18px);
     }
@@ -2970,7 +2986,7 @@
       inset: -1px;
       border-radius: inherit;
       padding: 1px;
-      background: linear-gradient(135deg, rgba(34, 218, 255, 0.48), transparent 36%, rgba(153, 79, 255, 0.36));
+      background: linear-gradient(135deg, rgba(var(--panel-accent-rgb), 0.48), transparent 36%, rgba(var(--panel-accent-2-rgb), 0.36));
       opacity: 0.32;
       pointer-events: none;
       mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -2983,13 +2999,15 @@
 
     .post-panel.interactive:hover {
       transform: translateY(-6px);
-      border-color: rgba(45, 220, 255, 0.38);
+      border-color: rgba(var(--panel-accent-rgb), 0.42);
       background:
+        radial-gradient(circle at 14% 10%, rgba(var(--panel-accent-rgb), 0.14), transparent 34%),
+        radial-gradient(circle at 88% 88%, rgba(var(--panel-accent-2-rgb), 0.12), transparent 36%),
         linear-gradient(135deg, rgba(255, 255, 255, 0.09), transparent 34%),
         rgba(8, 16, 38, 0.9);
       box-shadow:
         0 34px 90px rgba(0, 0, 0, 0.42),
-        0 0 34px rgba(35, 214, 255, 0.12),
+        0 0 38px rgba(var(--panel-accent-rgb), 0.16),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
@@ -3059,7 +3077,8 @@
       bottom: 16px;
       width: 54px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(var(--solution-accent-rgb, 43, 226, 255), 0.68));
+      background: linear-gradient(90deg, transparent, rgba(var(--panel-accent-rgb, 43, 226, 255), 0.78));
+      box-shadow: 0 0 16px rgba(var(--panel-accent-rgb, 43, 226, 255), 0.2);
       opacity: 0.7;
     }
 
@@ -3147,6 +3166,8 @@
     }
 
     .proof-logo {
+      --panel-accent-rgb: 43, 226, 255;
+      --panel-accent-2-rgb: 66, 108, 255;
       position: relative;
       display: grid;
       grid-template-columns: 46px 1fr;
@@ -3154,29 +3175,37 @@
       align-items: center;
       min-height: 76px;
       padding: 14px;
-      border: 1px solid rgba(126, 156, 255, 0.16);
+      border: 1px solid rgba(var(--panel-accent-rgb), 0.22);
       border-radius: 8px;
       background:
-        radial-gradient(circle at 12% 18%, rgba(43, 226, 255, 0.16), transparent 34%),
+        radial-gradient(circle at 12% 18%, rgba(var(--panel-accent-rgb), 0.2), transparent 34%),
+        radial-gradient(circle at 92% 84%, rgba(var(--panel-accent-2-rgb), 0.12), transparent 34%),
         linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 44%),
         rgba(7, 13, 31, 0.76);
       box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.07),
-        0 16px 42px rgba(0, 0, 0, 0.18);
+        0 16px 42px rgba(0, 0, 0, 0.18),
+        0 0 24px rgba(var(--panel-accent-rgb), 0.08);
     }
+
+    .proof-logo:nth-child(1) { --panel-accent-rgb: 255, 184, 77; --panel-accent-2-rgb: 255, 102, 216; }
+    .proof-logo:nth-child(2) { --panel-accent-rgb: 43, 226, 255; --panel-accent-2-rgb: 66, 108, 255; }
+    .proof-logo:nth-child(3) { --panel-accent-rgb: 57, 234, 162; --panel-accent-2-rgb: 43, 156, 255; }
+    .proof-logo:nth-child(4) { --panel-accent-rgb: 155, 124, 255; --panel-accent-2-rgb: 43, 220, 255; }
+    .proof-logo:nth-child(5) { --panel-accent-rgb: 255, 102, 216; --panel-accent-2-rgb: 79, 140, 255; }
 
     .proof-logo-icon {
       display: grid;
       place-items: center;
       width: 46px;
       height: 46px;
-      border: 1px solid rgba(43, 226, 255, 0.38);
+      border: 1px solid rgba(var(--panel-accent-rgb), 0.42);
       border-radius: 8px;
       background:
-        linear-gradient(135deg, rgba(43, 226, 255, 0.18), rgba(151, 83, 255, 0.12)),
+        linear-gradient(135deg, rgba(var(--panel-accent-rgb), 0.22), rgba(var(--panel-accent-2-rgb), 0.14)),
         rgba(7, 13, 31, 0.72);
-      color: #2bdcff;
-      box-shadow: 0 0 24px rgba(43, 226, 255, 0.16);
+      color: rgb(var(--panel-accent-rgb));
+      box-shadow: 0 0 24px rgba(var(--panel-accent-rgb), 0.18);
     }
 
     .proof-logo-icon svg {
@@ -3207,12 +3236,22 @@
     }
 
     .proof-metric {
+      --panel-accent-rgb: 43, 226, 255;
+      --panel-accent-2-rgb: 157, 79, 255;
       padding: 16px;
-      border: 1px solid rgba(126, 156, 255, 0.14);
+      border: 1px solid rgba(var(--panel-accent-rgb), 0.18);
       border-radius: 8px;
-      background: rgba(8, 15, 36, 0.62);
+      background:
+        radial-gradient(circle at 15% 18%, rgba(var(--panel-accent-rgb), 0.13), transparent 42%),
+        linear-gradient(315deg, rgba(var(--panel-accent-2-rgb), 0.08), transparent 48%),
+        rgba(8, 15, 36, 0.62);
       min-width: 0;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
+
+    .proof-metric:nth-child(1) { --panel-accent-rgb: 43, 226, 255; --panel-accent-2-rgb: 66, 108, 255; }
+    .proof-metric:nth-child(2) { --panel-accent-rgb: 155, 124, 255; --panel-accent-2-rgb: 43, 220, 255; }
+    .proof-metric:nth-child(3) { --panel-accent-rgb: 255, 184, 77; --panel-accent-2-rgb: 255, 102, 216; }
 
     .proof-metric strong {
       display: block;
@@ -3242,25 +3281,45 @@
     }
 
     .case-card {
+      --panel-accent-rgb: 43, 226, 255;
+      --panel-accent-2-rgb: 66, 108, 255;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       gap: 22px;
+      border-color: rgba(var(--panel-accent-rgb), 0.28);
+      background:
+        radial-gradient(circle at 10% 12%, rgba(var(--panel-accent-rgb), 0.2), transparent 34%),
+        radial-gradient(circle at 92% 88%, rgba(var(--panel-accent-2-rgb), 0.15), transparent 36%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 38%),
+        rgba(7, 13, 31, 0.84);
+      box-shadow:
+        0 26px 80px rgba(0, 0, 0, 0.34),
+        0 0 34px rgba(var(--panel-accent-rgb), 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
+
+    .case-card:nth-child(1) { --panel-accent-rgb: 43, 226, 255; --panel-accent-2-rgb: 66, 108, 255; }
+    .case-card:nth-child(2) { --panel-accent-rgb: 155, 124, 255; --panel-accent-2-rgb: 255, 102, 216; }
+    .case-card:nth-child(3) { --panel-accent-rgb: 57, 234, 162; --panel-accent-2-rgb: 43, 156, 255; }
+    .case-card:nth-child(4) { --panel-accent-rgb: 255, 184, 77; --panel-accent-2-rgb: 180, 75, 255; }
 
     .case-tag {
       display: inline-flex;
-      color: #2bdcff;
+      color: rgb(var(--panel-accent-rgb));
       font-size: 12px;
       font-weight: 850;
       letter-spacing: 0.15em;
       text-transform: uppercase;
+      text-shadow: 0 0 14px rgba(var(--panel-accent-rgb), 0.24);
     }
 
     .method-panel {
       padding: 22px;
       border-color: rgba(52, 225, 255, 0.24);
       background:
+        radial-gradient(circle at 15% 14%, rgba(43, 226, 255, 0.12), transparent 36%),
+        radial-gradient(circle at 85% 84%, rgba(157, 79, 255, 0.16), transparent 38%),
         linear-gradient(135deg, rgba(34, 218, 255, 0.1), transparent 35%),
         linear-gradient(315deg, rgba(157, 79, 255, 0.15), transparent 42%),
         rgba(7, 13, 31, 0.84);
@@ -3286,18 +3345,29 @@
     }
 
     .method-step {
+      --panel-accent-rgb: 43, 226, 255;
+      --panel-accent-2-rgb: 66, 108, 255;
       position: relative;
       z-index: 1;
       min-height: 296px;
       padding: 112px 24px 26px;
-      border: 1px solid rgba(106, 151, 255, 0.14);
+      border: 1px solid rgba(var(--panel-accent-rgb), 0.22);
       border-radius: 8px;
       background:
+        radial-gradient(circle at 18% 12%, rgba(var(--panel-accent-rgb), 0.16), transparent 34%),
+        radial-gradient(circle at 88% 88%, rgba(var(--panel-accent-2-rgb), 0.1), transparent 36%),
         linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 36%),
         rgba(4, 9, 24, 0.48);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      box-shadow:
+        0 0 28px rgba(var(--panel-accent-rgb), 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
       text-align: left;
     }
+
+    .method-step:nth-child(1) { --panel-accent-rgb: 43, 226, 255; --panel-accent-2-rgb: 66, 108, 255; }
+    .method-step:nth-child(2) { --panel-accent-rgb: 155, 124, 255; --panel-accent-2-rgb: 43, 220, 255; }
+    .method-step:nth-child(3) { --panel-accent-rgb: 255, 184, 77; --panel-accent-2-rgb: 255, 102, 216; }
+    .method-step:nth-child(4) { --panel-accent-rgb: 57, 234, 162; --panel-accent-2-rgb: 43, 156, 255; }
 
     .method-step h3 {
       margin-top: 0;
@@ -3309,8 +3379,9 @@
 
     .method-step:nth-child(even) {
       background:
-        linear-gradient(135deg, rgba(34, 218, 255, 0.065), transparent 36%),
-        linear-gradient(315deg, rgba(157, 79, 255, 0.085), transparent 42%),
+        radial-gradient(circle at 18% 12%, rgba(var(--panel-accent-rgb), 0.18), transparent 34%),
+        radial-gradient(circle at 88% 88%, rgba(var(--panel-accent-2-rgb), 0.12), transparent 36%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 36%),
         rgba(4, 9, 24, 0.5);
     }
 
@@ -3322,17 +3393,17 @@
       place-items: center;
       width: 72px;
       height: 72px;
-      border: 1px solid rgba(42, 219, 255, 0.42);
+      border: 1px solid rgba(var(--panel-accent-rgb), 0.48);
       border-radius: 50%;
       background:
         radial-gradient(circle at 42% 32%, rgba(255, 255, 255, 0.18), transparent 20%),
-        radial-gradient(circle, rgba(37, 218, 255, 0.22), rgba(120, 72, 255, 0.12) 56%, rgba(7, 16, 40, 0.95));
-      color: #35e2ff;
+        radial-gradient(circle, rgba(var(--panel-accent-rgb), 0.24), rgba(var(--panel-accent-2-rgb), 0.14) 56%, rgba(7, 16, 40, 0.95));
+      color: rgb(var(--panel-accent-rgb));
       font-size: 20px;
       font-weight: 900;
       box-shadow:
-        0 0 24px rgba(35, 214, 255, 0.24),
-        inset 0 0 22px rgba(35, 214, 255, 0.08);
+        0 0 24px rgba(var(--panel-accent-rgb), 0.24),
+        inset 0 0 22px rgba(var(--panel-accent-rgb), 0.08);
     }
 
     .plans-layout {
@@ -3343,22 +3414,39 @@
     }
 
     .plan-card {
+      --panel-accent-rgb: 43, 226, 255;
+      --panel-accent-2-rgb: 66, 108, 255;
       display: flex;
       flex-direction: column;
       padding: 34px;
-      border-color: rgba(52, 225, 255, 0.24);
+      border-color: rgba(var(--panel-accent-rgb), 0.28);
       background:
-        linear-gradient(135deg, rgba(34, 218, 255, 0.12), transparent 34%),
-        linear-gradient(315deg, rgba(157, 79, 255, 0.14), transparent 38%),
+        radial-gradient(circle at 14% 12%, rgba(var(--panel-accent-rgb), 0.2), transparent 34%),
+        radial-gradient(circle at 90% 88%, rgba(var(--panel-accent-2-rgb), 0.17), transparent 36%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 36%),
         rgba(7, 13, 31, 0.84);
+      box-shadow:
+        0 26px 80px rgba(0, 0, 0, 0.36),
+        0 0 36px rgba(var(--panel-accent-rgb), 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
+    .plan-card:nth-child(1) { --panel-accent-rgb: 43, 226, 255; --panel-accent-2-rgb: 66, 108, 255; }
+    .plan-card:nth-child(2) { --panel-accent-rgb: 255, 184, 77; --panel-accent-2-rgb: 255, 102, 216; }
+    .plan-card:nth-child(3) { --panel-accent-rgb: 155, 124, 255; --panel-accent-2-rgb: 43, 220, 255; }
+
     .plan-card.featured {
-      border-color: rgba(52, 225, 255, 0.28);
+      border-color: rgba(var(--panel-accent-rgb), 0.34);
       background:
-        linear-gradient(135deg, rgba(34, 218, 255, 0.14), transparent 32%),
-        linear-gradient(315deg, rgba(157, 79, 255, 0.18), transparent 36%),
+        radial-gradient(circle at 14% 12%, rgba(var(--panel-accent-rgb), 0.24), transparent 34%),
+        radial-gradient(circle at 90% 88%, rgba(var(--panel-accent-2-rgb), 0.22), transparent 36%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.07), transparent 36%),
         rgba(7, 13, 31, 0.86);
+    }
+
+    .plan-card h3 {
+      color: rgb(var(--panel-accent-rgb));
+      text-shadow: 0 0 18px rgba(var(--panel-accent-rgb), 0.16);
     }
 
     .plan-price {
@@ -3399,8 +3487,8 @@
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background: radial-gradient(circle, #2be2ff 0 42%, rgba(43, 226, 255, 0.18) 45% 100%);
-      box-shadow: 0 0 12px rgba(43, 226, 255, 0.42);
+      background: radial-gradient(circle, rgba(var(--panel-accent-rgb), 0.98) 0 42%, rgba(var(--panel-accent-rgb), 0.18) 45% 100%);
+      box-shadow: 0 0 12px rgba(var(--panel-accent-rgb), 0.42);
     }
 
     .resource-grid {
@@ -3447,6 +3535,8 @@
 
     .team-joint-card {
       --team-photo-height: 540px;
+      --panel-accent-rgb: 43, 226, 255;
+      --panel-accent-2-rgb: 155, 124, 255;
       display: grid;
       grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.72fr);
       align-items: stretch;
@@ -3454,6 +3544,11 @@
       min-height: 0;
       padding: 0;
       overflow: hidden;
+      border-color: rgba(var(--panel-accent-rgb), 0.24);
+      background:
+        radial-gradient(circle at 14% 16%, rgba(var(--panel-accent-rgb), 0.12), transparent 36%),
+        radial-gradient(circle at 88% 82%, rgba(var(--panel-accent-2-rgb), 0.14), transparent 38%),
+        rgba(7, 13, 31, 0.84);
     }
 
     .team-joint-photo {
@@ -3506,15 +3601,26 @@
     .team-photo-name {
       max-width: 230px;
       padding: 12px 14px;
-      border: 1px solid rgba(43, 226, 255, 0.25);
+      border: 1px solid rgba(43, 226, 255, 0.34);
       border-radius: 8px;
-      background: rgba(5, 10, 24, 0.68);
-      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(43, 226, 255, 0.18), transparent 42%),
+        rgba(5, 10, 24, 0.7);
+      box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.28),
+        0 0 22px rgba(43, 226, 255, 0.12);
       backdrop-filter: blur(14px);
     }
 
     .team-photo-name.right {
       text-align: right;
+      border-color: rgba(155, 124, 255, 0.38);
+      background:
+        radial-gradient(circle at 88% 18%, rgba(155, 124, 255, 0.2), transparent 42%),
+        rgba(5, 10, 24, 0.7);
+      box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.28),
+        0 0 22px rgba(155, 124, 255, 0.14);
     }
 
     .team-photo-name strong {
@@ -3542,6 +3648,9 @@
       padding: clamp(30px, 4vw, 54px);
       min-height: 0;
       overflow: auto;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(155, 124, 255, 0.14), transparent 34%),
+        radial-gradient(circle at 20% 86%, rgba(43, 226, 255, 0.1), transparent 34%);
     }
 
     .team-joint-content h3 {
@@ -3568,10 +3677,23 @@
     }
 
     .team-pair-item {
+      --panel-accent-rgb: 43, 226, 255;
+      --panel-accent-2-rgb: 66, 108, 255;
       padding: 18px;
-      border: 1px solid rgba(103, 152, 255, 0.16);
+      border: 1px solid rgba(var(--panel-accent-rgb), 0.24);
       border-radius: 8px;
-      background: rgba(8, 15, 36, 0.64);
+      background:
+        radial-gradient(circle at 14% 12%, rgba(var(--panel-accent-rgb), 0.16), transparent 40%),
+        radial-gradient(circle at 92% 88%, rgba(var(--panel-accent-2-rgb), 0.1), transparent 42%),
+        rgba(8, 15, 36, 0.66);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 0 24px rgba(var(--panel-accent-rgb), 0.08);
+    }
+
+    .team-pair-item.right {
+      --panel-accent-rgb: 155, 124, 255;
+      --panel-accent-2-rgb: 255, 102, 216;
     }
 
     .team-pair-item strong {
