@@ -3147,6 +3147,7 @@
       display: grid;
       grid-template-columns: minmax(600px, 0.88fr) minmax(0, 1.12fr);
       gap: 24px;
+      align-items: stretch;
     }
 
     .proof-panel {
@@ -3171,11 +3172,11 @@
       --panel-accent-2-rgb: 66, 108, 255;
       position: relative;
       display: grid;
-      grid-template-columns: 40px minmax(0, 1fr);
-      gap: 12px;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 14px;
       align-items: center;
-      min-height: 66px;
-      padding: 11px 16px;
+      min-height: 74px;
+      padding: 13px 18px;
       border: 1px solid rgba(var(--panel-accent-rgb), 0.22);
       border-radius: 8px;
       background:
@@ -3198,8 +3199,8 @@
     .proof-logo-icon {
       display: grid;
       place-items: center;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border: 1px solid rgba(var(--panel-accent-rgb), 0.42);
       border-radius: 8px;
       background:
@@ -3210,14 +3211,14 @@
     }
 
     .proof-logo-icon svg {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
     }
 
     .proof-logo strong {
       display: block;
       color: #ffffff;
-      font-size: clamp(16px, 0.98vw, 19px);
+      font-size: clamp(18px, 1.13vw, 21px);
       font-weight: 900;
       line-height: 1.08;
       white-space: nowrap;
@@ -3276,13 +3277,15 @@
     .case-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      align-content: start;
+      align-content: stretch;
+      height: 100%;
     }
 
     .case-card {
-      padding: 26px;
-      min-height: 190px;
+      padding: clamp(28px, 2.25vw, 34px);
+      min-height: 0;
     }
 
     .case-card {
@@ -3924,6 +3927,11 @@
       .proof-logo strong {
         white-space: normal;
         text-wrap: balance;
+      }
+
+      .case-grid {
+        height: auto;
+        grid-template-rows: auto;
       }
 
       .post-heading p {
