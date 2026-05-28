@@ -913,9 +913,9 @@
       z-index: 2;
       left: -10vw;
       right: -10vw;
-      bottom: -104px;
+      bottom: -154px;
       height: 260px;
-      opacity: 0.52;
+      opacity: 0.34;
       pointer-events: none;
       background:
         radial-gradient(ellipse at 64% 48%, rgba(245, 53, 229, 0.36), transparent 27%),
@@ -1952,7 +1952,7 @@
       z-index: 6;
       background:
         linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.96) 28%, rgba(0, 0, 0, 0.3) 43%, rgba(0, 0, 0, 0.02) 70%, rgba(0, 0, 0, 0.08) 100%),
-        linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0) 18%, rgba(0, 0, 0, 0) 80%, rgba(2, 7, 20, 0.92) 100%);
+        linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0) 18%, rgba(0, 0, 0, 0) 64%, rgba(0, 0, 0, 0.74) 88%, #000000 100%);
       pointer-events: none;
     }
 
@@ -2011,10 +2011,11 @@
 
     .mesh-wave {
       z-index: 1;
-      bottom: -34px;
-      height: 240px;
-      opacity: 0.24;
-      mask-image: linear-gradient(90deg, transparent 0%, transparent 26%, black 46%, black 100%);
+      bottom: -96px;
+      height: 230px;
+      opacity: 0.16;
+      mask-image: linear-gradient(180deg, transparent 0%, black 28%, black 66%, transparent 100%);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 28%, black 66%, transparent 100%);
     }
 
     .stats {
@@ -2079,7 +2080,7 @@
       pointer-events: none;
       background:
         linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0) 3.2%, rgba(0, 0, 0, 0) 96.8%, #000 100%),
-        linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 4%, rgba(0, 0, 0, 0) 96%, #000 100%);
+        linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 82%, rgba(0, 0, 0, 0.72) 94%, #000 100%);
     }
 
     .video-shell::after {
@@ -2090,7 +2091,8 @@
       pointer-events: none;
       background:
         radial-gradient(circle at 50% 52%, transparent 45%, rgba(0, 0, 0, 0.16) 72%, rgba(0, 0, 0, 0.44) 100%),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.28), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.28));
+        linear-gradient(90deg, rgba(0, 0, 0, 0.28), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.28)),
+        linear-gradient(180deg, transparent 64%, rgba(0, 0, 0, 0.24) 84%, #000 100%);
     }
 
     .hero-video {
@@ -2265,7 +2267,7 @@
       }
 
       to {
-        opacity: 0.52;
+        opacity: 0.34;
         transform: translateY(0);
       }
     }
