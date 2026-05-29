@@ -1,0 +1,14 @@
+{
+  "name": "rdp-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RDP website with Railway backend for chat and contact.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

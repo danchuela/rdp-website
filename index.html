@@ -1218,6 +1218,9 @@
       background: rgba(12, 17, 38, 0.82);
       box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(18px);
+      color: white;
+      cursor: pointer;
+      font: inherit;
     }
 
     .chat-icon {
@@ -1255,6 +1258,162 @@
 
     @keyframes dotPulse {
       50% { opacity: 0.38; }
+    }
+
+    .chat-panel {
+      position: fixed;
+      z-index: 120;
+      right: 32px;
+      bottom: 118px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      width: min(420px, calc(100vw - 32px));
+      height: min(620px, calc(100vh - 144px));
+      overflow: hidden;
+      border: 1px solid rgba(96, 132, 255, 0.32);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(42, 218, 255, 0.16), transparent 32%),
+        radial-gradient(circle at 90% 12%, rgba(151, 82, 255, 0.18), transparent 34%),
+        rgba(6, 10, 27, 0.94);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.52), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(14px) scale(0.98);
+      transform-origin: bottom right;
+      transition: opacity 180ms ease, transform 180ms ease;
+      backdrop-filter: blur(18px);
+    }
+
+    .chat-panel.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .chat-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 18px 16px;
+      border-bottom: 1px solid rgba(146, 168, 255, 0.16);
+    }
+
+    .chat-panel-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chat-panel-title strong {
+      display: block;
+      color: white;
+      font-size: 16px;
+      line-height: 1.1;
+    }
+
+    .chat-panel-title span {
+      display: block;
+      margin-top: 3px;
+      color: rgba(224, 234, 255, 0.58);
+      font-size: 12px;
+    }
+
+    .chat-close {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(146, 168, 255, 0.2);
+      border-radius: 50%;
+      background: rgba(9, 14, 31, 0.68);
+      color: rgba(238, 243, 255, 0.78);
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .chat-messages {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      overflow-y: auto;
+      padding: 18px;
+    }
+
+    .chat-message {
+      max-width: 88%;
+      padding: 12px 14px;
+      border: 1px solid rgba(146, 168, 255, 0.14);
+      border-radius: 8px;
+      color: rgba(238, 243, 255, 0.82);
+      font-size: 14px;
+      line-height: 1.48;
+      white-space: pre-wrap;
+    }
+
+    .chat-message.bot {
+      justify-self: start;
+      background: rgba(17, 27, 57, 0.82);
+    }
+
+    .chat-message.user {
+      justify-self: end;
+      border-color: rgba(39, 216, 255, 0.28);
+      background: linear-gradient(135deg, rgba(31, 124, 255, 0.86), rgba(159, 56, 239, 0.86));
+      color: white;
+    }
+
+    .chat-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0 18px 14px;
+    }
+
+    .chat-suggestion {
+      border: 1px solid rgba(43, 226, 255, 0.2);
+      border-radius: 999px;
+      background: rgba(13, 24, 55, 0.66);
+      color: rgba(230, 237, 255, 0.78);
+      cursor: pointer;
+      font: inherit;
+      font-size: 12px;
+      padding: 8px 10px;
+    }
+
+    .chat-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 14px 18px 18px;
+      border-top: 1px solid rgba(146, 168, 255, 0.16);
+      background: rgba(5, 8, 20, 0.52);
+    }
+
+    .chat-form input {
+      min-width: 0;
+      border-radius: 999px;
+      padding: 13px 16px;
+      font-size: 14px;
+    }
+
+    .chat-send {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1d78ff, #b232f0);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 22px rgba(115, 86, 255, 0.42);
+    }
+
+    .chat-send:disabled {
+      cursor: wait;
+      opacity: 0.6;
     }
 
     .section {
@@ -1843,6 +2002,13 @@
 
       .chat-widget div:last-child {
         display: none;
+      }
+
+      .chat-panel {
+        right: 16px;
+        bottom: 86px;
+        width: calc(100vw - 32px);
+        height: min(590px, calc(100vh - 108px));
       }
 
       .cards-grid,
@@ -2674,6 +2840,11 @@
 
       .chat-widget div:last-child {
         display: none;
+      }
+
+      .chat-panel {
+        bottom: 86px;
+        height: calc(100vh - 108px);
       }
     }
 
@@ -4393,7 +4564,7 @@
       </div>
     </main>
 
-    <a class="chat-widget" href="#contacto" aria-label="Ir al contacto">
+    <button class="chat-widget" type="button" aria-label="Abrir chat RDP" aria-expanded="false" aria-controls="rdp-chat">
       <div class="chat-icon">
         <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.7" aria-hidden="true">
           <path d="M4 11.5C4 7.4 7.6 4 12 4s8 3.4 8 7.5S16.4 19 12 19a8.7 8.7 0 0 1-2.2-.3L5 20l1.3-3.4A7.2 7.2 0 0 1 4 11.5Z"/>
@@ -4404,7 +4575,39 @@
         <strong>¿Hablamos?</strong>
         <span><i class="online-dot"></i>En l&iacute;nea ahora</span>
       </div>
-    </a>
+    </button>
+
+    <section class="chat-panel" id="rdp-chat" aria-label="Chat RDP" aria-hidden="true">
+      <div class="chat-panel-header">
+        <div class="chat-panel-title">
+          <div class="chat-icon" aria-hidden="true">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.7">
+              <path d="M4 11.5C4 7.4 7.6 4 12 4s8 3.4 8 7.5S16.4 19 12 19a8.7 8.7 0 0 1-2.2-.3L5 20l1.3-3.4A7.2 7.2 0 0 1 4 11.5Z"/>
+              <path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/>
+            </svg>
+          </div>
+          <div>
+            <strong>Asistente RDP</strong>
+            <span>IA, datos, automatizaci&oacute;n e integraciones</span>
+          </div>
+        </div>
+        <button class="chat-close" type="button" aria-label="Cerrar chat">&times;</button>
+      </div>
+      <div class="chat-messages" aria-live="polite">
+        <div class="chat-message bot">Hola, somos RDP. Cu&eacute;ntanos qu&eacute; proceso, documento, herramienta, imagen o v&iacute;deo quieres mejorar y te orientamos con una primera lectura.</div>
+      </div>
+      <div class="chat-suggestions" aria-label="Preguntas sugeridas">
+        <button class="chat-suggestion" type="button">Quiero automatizar un proceso</button>
+        <button class="chat-suggestion" type="button">Necesito un chatbot con mis documentos</button>
+        <button class="chat-suggestion" type="button">Tengo im&aacute;genes o PDFs que revisar</button>
+      </div>
+      <form class="chat-form">
+        <input type="text" name="message" placeholder="Escribe tu mensaje..." autocomplete="off" required>
+        <button class="chat-send" type="submit" aria-label="Enviar mensaje">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </section>
 
     <footer class="footer">
       <div class="footer-inner">
@@ -4441,11 +4644,100 @@
     mobileNav?.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => setMobileNavOpen(false));
     });
+    const apiBase = window.RDP_API_BASE || "";
     const contactForm = document.querySelector(".contact-form");
-    contactForm?.addEventListener("submit", (event) => {
+    contactForm?.addEventListener("submit", async (event) => {
       event.preventDefault();
       const note = contactForm.querySelector(".form-note");
-      if (note) note.textContent = "Perfecto. El siguiente paso es conectar este formulario a email, CRM o la automatizaci\u00f3n que prefieras.";
+      const button = contactForm.querySelector("button[type='submit']");
+      const formData = new FormData(contactForm);
+      const payload = Object.fromEntries(formData.entries());
+
+      if (note) note.textContent = "Enviando mensaje...";
+      if (button) button.disabled = true;
+
+      try {
+        const response = await fetch(`${apiBase}/api/contact`, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || "No se ha podido enviar el mensaje.");
+        if (note) note.textContent = data.message || "Mensaje enviado. Te responderemos pronto.";
+        contactForm.reset();
+      } catch (error) {
+        if (note) note.textContent = "Ahora mismo el formulario no ha podido enviar el mensaje. Escr\u00edbenos directamente o prueba de nuevo en unos minutos.";
+      } finally {
+        if (button) button.disabled = false;
+      }
+    });
+
+    const chatWidget = document.querySelector(".chat-widget");
+    const chatPanel = document.querySelector(".chat-panel");
+    const chatClose = document.querySelector(".chat-close");
+    const chatForm = document.querySelector(".chat-form");
+    const chatInput = chatForm?.querySelector("input[name='message']");
+    const chatMessagesEl = document.querySelector(".chat-messages");
+    const chatSuggestions = document.querySelectorAll(".chat-suggestion");
+    const chatHistory = [];
+
+    function setChatOpen(isOpen) {
+      chatPanel?.classList.toggle("open", isOpen);
+      chatPanel?.setAttribute("aria-hidden", String(!isOpen));
+      chatWidget?.setAttribute("aria-expanded", String(isOpen));
+      if (isOpen) window.setTimeout(() => chatInput?.focus(), 120);
+    }
+
+    function addChatMessage(role, text) {
+      const message = document.createElement("div");
+      message.className = `chat-message ${role === "user" ? "user" : "bot"}`;
+      message.textContent = text;
+      chatMessagesEl?.appendChild(message);
+      chatMessagesEl?.scrollTo({ top: chatMessagesEl.scrollHeight, behavior: "smooth" });
+      if (role === "user" || role === "assistant") {
+        chatHistory.push({ role, content: text });
+      }
+      return message;
+    }
+
+    async function sendChatMessage(text) {
+      const cleanText = text.trim();
+      if (!cleanText || !chatForm) return;
+
+      addChatMessage("user", cleanText);
+      if (chatInput) chatInput.value = "";
+      const button = chatForm.querySelector("button[type='submit']");
+      if (button) button.disabled = true;
+      const pending = addChatMessage("bot", "Pensando...");
+
+      try {
+        const response = await fetch(`${apiBase}/api/chat`, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ messages: chatHistory.slice(-10) })
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || "No se ha podido responder.");
+        const reply = data.reply || "Cu\u00e9ntanos un poco m\u00e1s y lo aterrizamos.";
+        pending.textContent = reply;
+        chatHistory.push({ role: "assistant", content: reply });
+      } catch (error) {
+        pending.textContent = "Ahora mismo el chat no est&aacute; pudiendo responder. Puedes dejarnos el mensaje en el formulario y lo revisamos directamente.";
+      } finally {
+        if (button) button.disabled = false;
+        chatInput?.focus();
+      }
+    }
+
+    chatWidget?.addEventListener("click", () => setChatOpen(!chatPanel?.classList.contains("open")));
+    chatClose?.addEventListener("click", () => setChatOpen(false));
+    chatForm?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      sendChatMessage(chatInput?.value || "");
+    });
+    chatSuggestions.forEach((button) => {
+      button.addEventListener("click", () => sendChatMessage(button.textContent || ""));
     });
 
     const heroVideo = document.querySelector(".hero-video");
